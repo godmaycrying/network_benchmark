@@ -9,7 +9,7 @@ class qps_count
 		count_thd_ = std::thread([this]() mutable {
 			while (is_running_) {
 				std::this_thread::sleep_for(std::chrono::seconds(1));
-				std::cout << "QTcpServer - QPS: " << count_.load(std::memory_order_acquire) << std::endl;
+				std::cout << "asio TcpServer - QPS: " << count_.load(std::memory_order_acquire) << std::endl;
 				count_.store(0, std::memory_order_release);
 			}
 		});
